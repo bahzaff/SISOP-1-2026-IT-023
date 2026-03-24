@@ -118,7 +118,9 @@ END {
 
 ![output a](assets/1z.png)
 
+**kendala**
 
+tidak ada kendala
 
 
 
