@@ -6,16 +6,20 @@ BEGIN {
 
 NR == 1 { next }
 
+{ count++ }
+
+{ gerbong[$4] = 1 }
+
+{ total_age += $2 }
+
 {
-    count++
-    total_age += $2
     if ($2 > max_age) {
         max_age = $2
         oldest = $1
     }
-    gerbong[$4] = 1
-    if ($3 == "Business") business++
 }
+
+{ if ($3 == "Business") business++ }
 
 END {
     if (mode == "a") {
