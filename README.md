@@ -92,27 +92,31 @@ END {
 ```
 **OUTPUT SOAL 1**
 
+`a. Total Penumpang`
+
+![output a](assets/1a.png)
 
 
+`b. Jumlah Gerbong Unik`
+
+![output a](assets/1b.png)
 
 
+`c. Penumpang Tertua`
 
+![output a](assets/1c.png)
 
+`d. Rata-rata Usia`
 
+![output a](assets/1d.png)
 
+`e. Penumpang Business Class`
 
+![output a](assets/1e.png)
 
+`f. Invalid Option`
 
-
-
-
-
-
-
-
-
-
-
+![output a](assets/1z.png)
 
 
 
