@@ -122,10 +122,7 @@ END {
 
 tidak ada kendala
 
-
-
-
-
+## SOAL 2
 
 
 
