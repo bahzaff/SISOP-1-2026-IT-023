@@ -244,8 +244,8 @@ cat posisipusaka.txt
 
 ![output a](assets/nemu.png)
 
-
-
+**KENDALA**
+venv sempat masuk di folder repository jadi tree nya berantakan
 
 
 
