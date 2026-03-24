@@ -210,27 +210,35 @@ awk -F', ' '
 cat posisipusaka.txt
 ```
 **OUTPUT SOAL 2**
-`Install gdown dan aktivasi venv`
+`Install gdown`
+
 
 
 `Download PDF`
 
 
 
+`PDF di folder`
 
 
 
+`Membaca isi PDF`
 
 
 
+`Isi folder hasil clone`
 
 
 
+`Isi gsxtrack.json`
 
 
 
+`output titik-penting.txt`
 
 
+
+`output posisipusaka.txt`
 
 
 
