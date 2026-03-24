@@ -210,37 +210,39 @@ awk -F', ' '
 cat posisipusaka.txt
 ```
 **OUTPUT SOAL 2**
-`Install gdown`
 
+`gdown`
 
+![output a](assets/gdown.png)
 
 `Download PDF`
 
-
+![output a](assets/download%20pdf.png)
 
 `PDF di folder`
 
-
+![output a](assets/ls%20ekspedisi.png)
 
 `Membaca isi PDF`
 
-
+![output a](assets/grep%20pdf.png)
 
 `Isi folder hasil clone`
 
-
+![output a](assets/ls%20peta%20gunung%20kawi.png)
 
 `Isi gsxtrack.json`
 
+![output a](assets/cat%20gst1.png)
+![output a](assets/cat%20gst2.png)
 
+`output titik penting.txt`
 
-`output titik-penting.txt`
-
-
+![output a](assets/parser.png)
 
 `output posisipusaka.txt`
 
-
+![output a](assets/nemu.png)
 
 
 
