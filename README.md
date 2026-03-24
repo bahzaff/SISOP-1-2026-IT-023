@@ -124,6 +124,125 @@ tidak ada kendala
 
 ## SOAL 2
 
+Langkah pertama adalah membuat virtual environment (venv) Python agar instalasi package terisolasi dan tidak mempengaruhi sistem. Venv dibuat di luar folder repo agar tidak ikut ter-push ke GitHub
+
+`1a. Install gdown dan Download PDF`
+
+Setelah venv aktif, diinstall gdown yaitu tools Python yang memungkinkan download file dari Google Drive lewat terminal. Setelah gdown terinstall, dibuat folder ekspedisi dan file PDF peta diunduh ke dalamnya.
+```bash
+# Buat virtual environment di luar repo
+python3 -m venv ~/sisop-venv
+
+# Aktifkan venv
+source ~/sisop-venv/bin/activate
+
+# Install gdown di dalam venv
+pip install gdown
+
+# Verifikasi gdown jalan dari dalam venv
+which gdown
+
+# Buat folder dan download PDF
+mkdir -p soal_2/ekspedisi
+cd soal_2/ekspedisi
+gdown "https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q" -O peta-ekspedisi-amba.pdf
+```
+
+`1b. Membaca Isi PDF (Concatenate)`
+
+membaca isi file PDF untuk menemukan tautan yang tersembunyi di dalamnya. Karena PDF menyimpan teks dalam format binary, digunakan perintah cat yang dikombinasikan dengan grep untuk memfilter baris yang mengandung URL atau link GitHub.
+
+
+```bash
+cat peta-ekspedisi-amba.pdf | grep -a "github\|https\|http"
+```
+Dari perintah tersebut ditemukan link repo:
+ `https://github.com/pocongcyber77/peta-gunung-kawi.git`
+
+`1c. Install Git dan Clone Repo`
+
+Setelah tautan ditemukan, repo tersebut tidak bisa diunduh menggunakan gdown karena bukan file Google Drive, melainkan sebuah repository Git. Oleh karena itu digunakan perintah git clone untuk mengunduh seluruh isi repo ke dalam folder ekspedisi.
+```bash
+git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
+```
+
+`1d. Hasil Clone Repo`
+
+Setelah proses clone selesai, folder peta-gunung-kawi berhasil dibuat di dalam folder ekspedisi. Di dalam folder tersebut terdapat file gsxtrack.json yang berisi data koordinat 4 titik lokasi bekas ekspedisi paman. Isi dari gsxtrack.json dapat dilihat sebagai berikut:
+```bash
+cat peta-gunung-kawi/gsxtrack.json
+```
+File tersebut berisi 4 node dengan masing-masing memiliki data id, site_name, latitude, longitude, elevation_m, dan status.
+
+`2a. Membuat parserkoordinat.sh`
+
+Langkah pertama adalah memahami struktur file gsxtrack.json yang berisi 4 node lokasi dengan data id, site_name, latitude, dan longitude. Untuk mengekstrak data tersebut, dibuat shell script parserkoordinat.sh yang menggunakan kombinasi grep dan awk dengan regex untuk mengambil nilai-nilai yang dibutuhkan dari setiap node. Hasilnya disimpan ke file titik-penting.txt dengan format id, site_name, latitude, longitude dan diurutkan berdasarkan id menggunakan sort.
+```bash
+#!/bin/bash
+
+grep -E '"id"|"site_name"|"latitude"|"longitude"' gsxtrack.json | \
+awk '
+  /"id"/        { match($0, /"id": "([^"]+)"/, arr); id=arr[1] }
+  /"site_name"/ { match($0, /"site_name": "([^"]+)"/, arr); site=arr[1] }
+  /"latitude"/  { match($0, /"latitude": ([^,]+)/, arr); lat=arr[1] }
+  /"longitude"/ { match($0, /"longitude": ([^,]+)/, arr); lon=arr[1];
+                  print id", "site", "lat", "lon }
+' | sort > titik-penting.txt
+
+cat titik-penting.txt
+```
+
+`2b. Membuat nemupusaka.sh`
+
+Setelah titik-penting.txt berhasil dibuat, langkah berikutnya adalah menghitung titik tengah dari keempat koordinat tersebut.digunakan metode titik simetri diagonal yaitu menghitung titik tengah dari dua koordinat yang saling berseberangan (node_001 dan node_003).cript membaca baris pertama (NR==1) dan baris ketiga (NR==3) dari titik-penting.txt sebagai pasangan diagonal, lalu menghitung rata-ratanya menggunakan awk dan menyimpan hasilnya ke posisipusaka.txt.
+#!/bin/bash
+```bash
+awk -F', ' '
+  NR==1 { x1=$4; y1=$3 }
+  NR==3 { x2=$4; y2=$3 }
+  END {
+    lat = (y1+y2)/2
+    lon = (x1+x2)/2
+    printf "Koordinat pusat: %.6f, %.6f\n", lat, lon
+  }
+' titik-penting.txt > posisipusaka.txt
+
+cat posisipusaka.txt
+```
+**OUTPUT SOAL 2**
+`Install gdown dan aktivasi venv`
+
+
+`Download PDF`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
