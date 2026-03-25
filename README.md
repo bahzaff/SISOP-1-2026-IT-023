@@ -466,6 +466,92 @@ if [ "$1" == "--check-tagihan" ]; then
 fi
 ```
 
+**OUTPUT SOAL 2**
+
+`menu utama`
+
+![output a](assets/menu%20utama.png)
+
+`Opsi Tambah Penghuni`
+
+![output a](assets/opsi1.png)
+
+`Opsi Hapus Penghuni`
+
+![output a](assets/opsi2.png)
+
+`opsi Tampilkan Daftar`
+
+![output a](assets/opsi3.png)
+
+`opsi Update Status`
+
+![output a](assets/opsi4.png)
+
+`opsi Laporan Keuangan`
+
+![output a](assets/opsi5.png)
+
+`menu cron`
+
+![output a](assets/menu%20cron.png)
+
+`daftar cron`
+
+![output a](assets/cron1.png)
+
+`lihat cron`
+
+![output a](assets/cron2.png)
+
+`hapus cron`
+
+![output a](assets/cron3.png)
+
+`exit`
+
+![output a](assets/opsi7.png)
+
+`history hapus`
+
+![output a](assets/hapuscsv.png)
+
+`laporan bulanan`
+
+![output a](assets/laporan.png)
+
+`log tagihan`
+
+![output a](assets/tagihan.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
