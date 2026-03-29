@@ -528,17 +528,29 @@ fi
 tidak ada kendala
 
 
+## REVISI
+
+soal 1
+
+mengghapus baris kosong agar tidak masuk kedalam hitungan gerbong
+
+![output a](assets/revsoal1.1.png)
+
+output
+
+![output a](assets/revsoal1.2.png)
 
 
+soal 2
+
+menghapus spasi setelah koma agar tidak ada spasi di output
+
+![output a](assets/revsoal2.1.png)
 
 
+output
 
-
-
-
-
-
-
+![output a](assets/revsoal2.2.png)
 
 
 
