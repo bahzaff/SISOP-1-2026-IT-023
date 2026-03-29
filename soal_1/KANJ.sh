@@ -4,22 +4,26 @@ BEGIN {
     delete ARGV[2]
 }
 
-NR == 1 { next }
-
-{ count++ }
-
-{ gerbong[$4] = 1 }
-
-{ total_age += $2 }
+NR == 1 || NF == 0 { next }
 
 {
-    if ($2 > max_age) {
-        max_age = $2
-        oldest = $1
+    
+    gsub(/\r/, "", $4)
+    
+    
+    if ($4 != "") {
+        count++
+        total_age += $2
+        gerbong[$4] = 1
+
+        if ($2 > max_age) {
+            max_age = $2
+            oldest = $1
+        }
+
+        if ($3 == "Business") business++
     }
 }
-
-{ if ($3 == "Business") business++ }
 
 END {
     if (mode == "a") {
@@ -32,14 +36,12 @@ END {
         print oldest " adalah penumpang kereta tertua dengan usia " max_age " tahun"
     }
     else if (mode == "d") {
-        avg = int(total_age / count)
-        print "Rata-rata usia penumpang adalah " avg " tahun"
+        if (count > 0) {
+            avg = int(total_age / count)
+            print "Rata-rata usia penumpang adalah " avg " tahun"
+        }
     }
     else if (mode == "e") {
         print "Jumlah penumpang business class ada " business " orang"
-    }
-    else {
-        print "Soal tidak dikenali. Gunakan a, b, c, d, atau e."
-        print "Contoh penggunaan: awk -f KANJ.sh data.csv a"
     }
 }
